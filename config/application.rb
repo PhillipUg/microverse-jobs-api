@@ -36,7 +36,7 @@ module MicroverseJobsApi
 
     config.middleware.insert_before ActionDispatch::Static, "Rack::Cors" do
       allow do
-        origins 'http://localhost:3000/'
+        origins '*'
         resource(
           '*',
           headers: :any,
