@@ -27,7 +27,7 @@ class JobsController < ApplicationController
     if @job.update(job_params)
       render json: @job
     else
-      render json: @job.errors. status: :unprocessable_entity
+      render json: @job.errors, status: :unprocessable_entity
     end
   end
 
