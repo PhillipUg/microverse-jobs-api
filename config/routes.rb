@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :create]
+      resource :favorites, only: [:create, :destroy]
       post '/login', to: "users#login"
       resources :jobs, only: [:index, :create, :show, :destroy, :update]
     end
