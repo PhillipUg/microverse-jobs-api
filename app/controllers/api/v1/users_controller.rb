@@ -1,8 +1,8 @@
-module Api::V1
-  class UsersController < ApplicationController
+  class Api::V1::UsersController < ApplicationController
     before_action :authorized, only: [:auto_login, :index]
 
     def index
+      # debugger
       @users = User.all
       render json: @users
     end
@@ -40,5 +40,3 @@ module Api::V1
       params.permit(:username, :password, :age)
     end
   end
-  
-end

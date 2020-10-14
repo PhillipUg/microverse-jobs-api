@@ -1,6 +1,4 @@
-module Api::V1
-
-class JobsController < ApplicationController
+class Api::V1::JobsController < ApplicationController
   def index
     @jobs = Job.all
     render json: @jobs
@@ -44,5 +42,4 @@ class JobsController < ApplicationController
     .permit(:company, :position, :description)
   end
 
-end
 end
