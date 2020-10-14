@@ -6,6 +6,11 @@
       @users = User.all
       render json: @users
     end
+    
+    def user_jobs
+      @user_jobs = logged_in_user.favorited_jobs      
+      render json: @user_jobs
+    end
 
     #REGISTER
     def create
