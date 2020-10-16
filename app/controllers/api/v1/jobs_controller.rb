@@ -7,8 +7,8 @@ class Api::V1::JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
-    favs = @job.favorites.map {|fav| fav.user_id === logged_in_user.id}.any?(true)
-    render json: {job: @job, favorited: favs}
+    favorited = @job.favorites.map {|fav| fav.user_id === logged_in_user.id}.any?(true)
+    render json: {job: @job, favorited: favorited}
   end
 
   def create
