@@ -2,7 +2,6 @@ class Api::V1::UsersController < ApplicationController
   before_action :authorized, only: %i[auto_login index]
 
   def index
-    # debugger
     @users = User.all
     render json: @users
   end
