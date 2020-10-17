@@ -7,8 +7,8 @@ class Api::V1::JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
-    favorited = @job.favorites.map {|fav| fav.user_id === logged_in_user.id}.any?(true)
-    render json: {job: @job, favorited: favorited}
+    favorited = @job.favorites.map { |fav| fav.user_id == logged_in_user.id }.any?(true)
+    render json: { job: @job, favorited: favorited }
   end
 
   def create
@@ -23,7 +23,7 @@ class Api::V1::JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    
+
     if @job.update(job_params)
       render json: @job
     else
@@ -40,8 +40,7 @@ class Api::V1::JobsController < ApplicationController
 
   def job_params
     params
-    .require(:job)
-    .permit(:company, :position, :description)
+      .require(:job)
+      .permit(:company, :position, :description)
   end
-
 end
