@@ -41,6 +41,6 @@ class Api::V1::JobsController < ApplicationController
   def job_params
     params
       .require(:job)
-      .permit(:company, :position, :description)
+      .permit(:company, :position, :description, :salary, :location)
   end
 end
